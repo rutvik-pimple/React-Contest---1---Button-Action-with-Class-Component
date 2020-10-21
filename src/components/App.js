@@ -10,7 +10,9 @@ function App() {
 
   return (
     <div id="main">
-      <button id="click" onClick={showPara}></button>
+      <button id="click" onClick={showPara}>
+        renderPara
+      </button>
       {showContent ? (
         <p id="para">
           Hello, I've learnt to use the full-stack evaluation tool. This makes
