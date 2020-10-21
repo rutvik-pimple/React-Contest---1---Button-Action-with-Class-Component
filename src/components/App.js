@@ -1,35 +1,24 @@
 import React, { Component, useState } from "react";
-import { paragraph } from "./paragraph";
+
 import "../styles/App.css";
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { str: [] };
-  }
-  addPara = (para) => {
-    const copyStr = this.state.str.append(para);
-    this.setState({ str: copyStr });
+function App() {
+  const [showContent, setContent] = React.useState(false);
+  let showPara = () => {
+    setContent(true);
   };
 
-  render() {
-    return (
-      <div id="main">
-        {/* Do not remove this main div!! */}
-        <button
-          id="click"
-          onClick={this.addPara(
-            "Hello, I've learnt to use the full-stack evaluation tool. This makes me so happy"
-          )}
-        >
-          renderPara
-        </button>
-        {this.state.str.map((string) => (
-          <paragraph id="para" para={string} />
-        ))}
-      </div>
-    );
-  }
+  return (
+    <div id="main">
+      <button id="click" onClick={showPara}></button>
+      {showContent ? (
+        <p id="para">
+          Hello, I've learnt to use the full-stack evaluation tool. This makes
+          me so happy
+        </p>
+      ) : null}
+    </div>
+  );
 }
 
 export default App;
