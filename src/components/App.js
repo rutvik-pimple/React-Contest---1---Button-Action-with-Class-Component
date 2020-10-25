@@ -1,26 +1,35 @@
 import React, { Component, useState } from "react";
 
-import "../styles/App.css";
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showParagraph: false
+    };
+    this._showPara = this._showPara.bind(this);
+  }
+  _showPara() {
+    this.setState({
+      showParagraph: true
+    });
+  }
 
-function App() {
-  const [showContent, setContent] = React.useState(false);
-  let showPara = () => {
-    setContent(true);
-  };
-
-  return (
-    <div id="main">
-      <button id="click" onClick={showPara}>
-        renderPara
-      </button>
-      {showContent ? (
-        <p id="para">
-          Hello, I've learnt to use the full-stack evaluation tool. This makes
-          me so happy
-        </p>
-      ) : null}
-    </div>
-  );
+  render() {
+    return (
+      <div id="main">
+        {/* Do not remove this main div!! */}
+        <button id="click" onClick={this._showPara}>
+          renderParagraph
+        </button>
+        {this.state.showParagraph ? (
+          <p id="para">
+            Hello, I've learnt to use the full-stack evaluation tool. This makes
+            me so happy
+          </p>
+        ) : null}
+      </div>
+    );
+  }
 }
 
 export default App;
